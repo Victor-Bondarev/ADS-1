@@ -8,8 +8,7 @@ bool checkPrime(uint64_t value) {
     bool checkPrime = true;
     if (value == 0 || value == 1) {
         checkPrime = false;
-    }
-    else {
+    } else {
         for (int i = 2; i <= value / 2; ++i) {
             if (value % i == 0) {
                 checkPrime = false;
@@ -55,7 +54,9 @@ uint64_t sumPrime(uint64_t hbound) {
 // вставьте код функции
     int sum = 0;
     for (int i = 0; i < hbound; i++) {
-        sum += i;
+        if (checkPrime(i)) {
+            sum += i;
+        }
     }
     return sum;
 }
